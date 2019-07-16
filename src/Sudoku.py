@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+# Kastro e Bet
+# SUDOKU
+
 cont= 0
 espaco = 0
 jorge = [
@@ -14,16 +18,29 @@ jorge = [
     ]
 
 def hojesim():
+    # verificar em linhas
     for j in range(9):
         for i in range(9):
             cont = 0
             for c in range(9):
                 if jorge[j][i] == jorge[j][c]: 
                     cont += 1
-            if cont != 1 :
-                return 'perdeu'
-    return 'ganhou'
-    # TODO: verificar em colunas
+            if cont == 1 :
+                verf += 1
+
+
+    # verificar em colunas
+    for j in range(9):
+        for i in range(9):
+            cont = 0
+            for c in range(9):
+                if jorge[i][j] == jorge[c][j]: # Isso funciona ?
+                    cont += 1                   
+            if cont == 1:
+                verf += 1
+    if verf == 18: # Situacao perfeita Verf == 18 ou 2 ????
+        return 'GANHOU'
+    return 'PERDEU'
 
 def completo():
     for i in range(9):
@@ -71,14 +88,24 @@ while jogo == 1:
     
     if completo():
         jogo = 0
-
-    
-    
-      
-    
-print(hojesim())
         
+print(hojesim())
 
+# TODO: Barrar entrada de dados que não sejam inteiros de 1 a 9
+# Todo: Fazer com que jogos diferentes sejam gerados no tabuleiros, sem ferir as regras do sudokaum
 
-    
+'''
+jorge = [
+             ['5','3','4','7','6','8','9','1','2'],
+             ['6','7','2','1','9','5','3','4','8'],
+             ['1','9','8','3','4','2','5','6','7'],
+             ['8','5','9','7','6','1','4','2','3'],
+             ['4','2','6','8','5','3','7','9','1'],
+             ['7','1','3','9','2','4','8','5','6'],
+             ['9','6','1','5','3','7','2','8','4'],
+             ['2','8','7','4','1','9','6','3','5'],
+             ['3','4','5','2','8','6','1','7','9']
+    ]
+
+'''
     
